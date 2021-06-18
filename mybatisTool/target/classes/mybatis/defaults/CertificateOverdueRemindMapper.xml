@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xiaoniu56.dao.CertificateOverdueRemindMapper" >
+  <resultMap id="BaseResultMap" type="com.xiaoniu56.model.defaults.CertificateOverdueRemind" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="seq_id" property="seqId" jdbcType="BIGINT" />
+    <result column="document_id" property="documentId" jdbcType="CHAR" />
+    <result column="document_type" property="documentType" jdbcType="BIGINT" />
+    <result column="certificate_type" property="certificateType" jdbcType="BIGINT" />
+    <result column="certificate_expiry_date" property="certificateExpiryDate" jdbcType="TIMESTAMP" />
+    <result column="certificate_overdue_status" property="certificateOverdueStatus" jdbcType="BIGINT" />
+    <result column="sent_message_flag" property="sentMessageFlag" jdbcType="BIT" />
+    <result column="last_send_message_date" property="lastSendMessageDate" jdbcType="TIMESTAMP" />
+    <result column="last_send_message_user_id" property="lastSendMessageUserId" jdbcType="CHAR" />
+    <result column="creater" property="creater" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="modifier" property="modifier" jdbcType="CHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="ver" property="ver" jdbcType="BIGINT" />
+    <result column="reminder_number" property="reminderNumber" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, seq_id, document_id, document_type, certificate_type, certificate_expiry_date, 
+    certificate_overdue_status, sent_message_flag, last_send_message_date, last_send_message_user_id, 
+    creater, create_time, modifier, modify_time, ver, reminder_number
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaoniu56.model.defaults.CertificateOverdueRemindExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from xn_m_certificate_overdue_remind
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from xn_m_certificate_overdue_remind
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from xn_m_certificate_overdue_remind
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xiaoniu56.model.defaults.CertificateOverdueRemindExample" >
+    delete from xn_m_certificate_overdue_remind
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xiaoniu56.model.defaults.CertificateOverdueRemind" >
+    insert into xn_m_certificate_overdue_remind (id, seq_id, document_id, 
+      document_type, certificate_type, certificate_expiry_date, 
+      certificate_overdue_status, sent_message_flag, last_send_message_date, 
+      last_send_message_user_id, creater, create_time, 
+      modifier, modify_time, ver, 
+      reminder_number)
+    values (#{id,jdbcType=CHAR}, #{seqId,jdbcType=BIGINT}, #{documentId,jdbcType=CHAR}, 
+      #{documentType,jdbcType=BIGINT}, #{certificateType,jdbcType=BIGINT}, #{certificateExpiryDate,jdbcType=TIMESTAMP}, 
+      #{certificateOverdueStatus,jdbcType=BIGINT}, #{sentMessageFlag,jdbcType=BIT}, #{lastSendMessageDate,jdbcType=TIMESTAMP}, 
+      #{lastSendMessageUserId,jdbcType=CHAR}, #{creater,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{modifier,jdbcType=CHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{ver,jdbcType=BIGINT}, 
+      #{reminderNumber,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xiaoniu56.model.defaults.CertificateOverdueRemind" >
+    insert into xn_m_certificate_overdue_remind
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="seqId != null" >
+        seq_id,
+      </if>
+      <if test="documentId != null" >
+        document_id,
+      </if>
+      <if test="documentType != null" >
+        document_type,
+      </if>
+      <if test="certificateType != null" >
+        certificate_type,
+      </if>
+      <if test="certificateExpiryDate != null" >
+        certificate_expiry_date,
+      </if>
+      <if test="certificateOverdueStatus != null" >
+        certificate_overdue_status,
+      </if>
+      <if test="sentMessageFlag != null" >
+        sent_message_flag,
+      </if>
+      <if test="lastSendMessageDate != null" >
+        last_send_message_date,
+      </if>
+      <if test="lastSendMessageUserId != null" >
+        last_send_message_user_id,
+      </if>
+      <if test="creater != null" >
+        creater,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="modifier != null" >
+        modifier,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="ver != null" >
+        ver,
+      </if>
+      <if test="reminderNumber != null" >
+        reminder_number,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="seqId != null" >
+        #{seqId,jdbcType=BIGINT},
+      </if>
+      <if test="documentId != null" >
+        #{documentId,jdbcType=CHAR},
+      </if>
+      <if test="documentType != null" >
+        #{documentType,jdbcType=BIGINT},
+      </if>
+      <if test="certificateType != null" >
+        #{certificateType,jdbcType=BIGINT},
+      </if>
+      <if test="certificateExpiryDate != null" >
+        #{certificateExpiryDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="certificateOverdueStatus != null" >
+        #{certificateOverdueStatus,jdbcType=BIGINT},
+      </if>
+      <if test="sentMessageFlag != null" >
+        #{sentMessageFlag,jdbcType=BIT},
+      </if>
+      <if test="lastSendMessageDate != null" >
+        #{lastSendMessageDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastSendMessageUserId != null" >
+        #{lastSendMessageUserId,jdbcType=CHAR},
+      </if>
+      <if test="creater != null" >
+        #{creater,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+        #{modifier,jdbcType=CHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ver != null" >
+        #{ver,jdbcType=BIGINT},
+      </if>
+      <if test="reminderNumber != null" >
+        #{reminderNumber,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xiaoniu56.model.defaults.CertificateOverdueRemindExample" resultType="java.lang.Integer" >
+    select count(*) from xn_m_certificate_overdue_remind
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xiaoniu56.model.defaults.CertificateOverdueRemind" >
+    update xn_m_certificate_overdue_remind
+    <set >
+      <if test="seqId != null" >
+        seq_id = #{seqId,jdbcType=BIGINT},
+      </if>
+      <if test="documentId != null" >
+        document_id = #{documentId,jdbcType=CHAR},
+      </if>
+      <if test="documentType != null" >
+        document_type = #{documentType,jdbcType=BIGINT},
+      </if>
+      <if test="certificateType != null" >
+        certificate_type = #{certificateType,jdbcType=BIGINT},
+      </if>
+      <if test="certificateExpiryDate != null" >
+        certificate_expiry_date = #{certificateExpiryDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="certificateOverdueStatus != null" >
+        certificate_overdue_status = #{certificateOverdueStatus,jdbcType=BIGINT},
+      </if>
+      <if test="sentMessageFlag != null" >
+        sent_message_flag = #{sentMessageFlag,jdbcType=BIT},
+      </if>
+      <if test="lastSendMessageDate != null" >
+        last_send_message_date = #{lastSendMessageDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastSendMessageUserId != null" >
+        last_send_message_user_id = #{lastSendMessageUserId,jdbcType=CHAR},
+      </if>
+      <if test="creater != null" >
+        creater = #{creater,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+        modifier = #{modifier,jdbcType=CHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ver != null" >
+        ver = #{ver,jdbcType=BIGINT},
+      </if>
+      <if test="reminderNumber != null" >
+        reminder_number = #{reminderNumber,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xiaoniu56.model.defaults.CertificateOverdueRemind" >
+    update xn_m_certificate_overdue_remind
+    set seq_id = #{seqId,jdbcType=BIGINT},
+      document_id = #{documentId,jdbcType=CHAR},
+      document_type = #{documentType,jdbcType=BIGINT},
+      certificate_type = #{certificateType,jdbcType=BIGINT},
+      certificate_expiry_date = #{certificateExpiryDate,jdbcType=TIMESTAMP},
+      certificate_overdue_status = #{certificateOverdueStatus,jdbcType=BIGINT},
+      sent_message_flag = #{sentMessageFlag,jdbcType=BIT},
+      last_send_message_date = #{lastSendMessageDate,jdbcType=TIMESTAMP},
+      last_send_message_user_id = #{lastSendMessageUserId,jdbcType=CHAR},
+      creater = #{creater,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=CHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      ver = #{ver,jdbcType=BIGINT},
+      reminder_number = #{reminderNumber,jdbcType=BIGINT}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+</mapper>

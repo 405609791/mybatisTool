@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+<!--  
+  <classPathEntry location="/Program Files/IBM/SQLLIB/java/db2java.zip" />-->
+
+  <context id="DB2Tables" targetRuntime="MyBatis3">
+  
+  	 <!-- 注释 -->
+     <commentGenerator >  
+         <property name="suppressAllComments" value="true"/><!-- 是否取消注释 -->  
+         <property name="suppressDate" value="true" /> <!-- 是否生成注释代时间戳-->  
+     </commentGenerator>
+     <!--    
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://localhost:3306/niu1.1.3"
+        userId="root"
+        password="">
+    </jdbcConnection>
+    -->
+  
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://127.0.0.1:3306/demotestdb"
+        userId="root"
+        password="root">
+    </jdbcConnection>
+
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+
+    <javaModelGenerator targetPackage="com.xiaoniu56.model.defaults" targetProject=".\src">
+      <property name="enableSubPackages" value="false" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+    <sqlMapGenerator targetPackage="mybatis.defaults"  targetProject=".\src">
+      <property name="enableSubPackages" value="false" />
+    </sqlMapGenerator>
+
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.xiaoniu56.dao"  targetProject=".\src">
+      <property name="enableSubPackages" value="false" />
+    </javaClientGenerator>
+    
+    <!--
+	 <table schema="xiaoniu" tableName="xn_m_address"  domainObjectName="Address" escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false">
+      <property name="useActualColumnNames" value="false"/>
+      <generatedKey column="ID" sqlStatement="MySql" identity="false" />
+    </table>  -->
+   
+
+    <table schema="xiaoniu" tableName="xn_m_certificate_overdue_remind"                           domainObjectName="CertificateOverdueRemind"                           escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false">
+		<!-- ignoreColumn column="id"/>
+		<ignoreColumn column="ver"/>
+	    <ignoreColumn column="creater"/>
+	    <ignoreColumn column="create_time"/>
+	    <ignoreColumn column="modifier"/>
+	    <ignoreColumn column="modify_time"/> -->
+	</table>
+	<!--<table schema="xiaoniu" tableName="xn_m_company"                        domainObjectName="Company"                        escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"></table>
+	<table schema="xiaoniu" tableName="xn_m_department"                     domainObjectName="Department"                     escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"></table>
+	<table schema="xiaoniu" tableName="xn_m_position"                       domainObjectName="Position"                       escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"></table>
+	<table schema="xiaoniu" tableName="xn_m_permission"                     domainObjectName="Permission"                       escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"></table>
+	<table schema="xiaoniu" tableName="xn_m_role"                           domainObjectName="Role"                           escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"></table>	
+	<table schema="xiaoniu" tableName="xn_m_goods_supply"                   domainObjectName="GoodsSupply"                    escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_goods_supply_quotation"         domainObjectName="GoodsSupplyQuotation"           escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/> 
+    <table schema="xiaoniu" tableName="xn_m_address"                        domainObjectName="Address"                        escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"></table>
+	<table schema="xiaoniu" tableName="xn_m_address_book_contact"           domainObjectName="AddressBookContact"             escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_administration_division"        domainObjectName="AdministrationDivision"         escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_contact"                        domainObjectName="Contact"                        escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_dictionary"                     domainObjectName="Dictionary"                     escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_evaluation"                     domainObjectName="Evaluation"                     escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_file"                           domainObjectName="File"                           escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_goods"                          domainObjectName="Goods"                          escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_goods_measuring"                domainObjectName="GoodsMeasuring"                 escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_invoice"                        domainObjectName="Invoice"                        escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_location"                       domainObjectName="Location"                       escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_logistics_order"                domainObjectName="LogisticsOrder"                 escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_r_logistics_order_operate_log" 	domainObjectName="LogisticsOrderOperateLog"  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_logistics_order_status_his"     domainObjectName="LogisticsOrderStatusHis"        escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_logistics_pipeline"             domainObjectName="LogisticsPipeline"              escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_member_level"                   domainObjectName="MemberLevel"                    escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_message"                        domainObjectName="Message"                        escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_outlets"                        domainObjectName="Outlets"                        escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_realtime_transport"             domainObjectName="RealtimeTransport"              escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_dispatch_batch"                 domainObjectName="DispatchBatch"                  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_dispatch_status_his"            domainObjectName="DispatchStatusHis"              escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_dispatch"                       domainObjectName="Dispatch"                       escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_target_quotation"               domainObjectName="TargetQuotation"                escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_transport_charge"               domainObjectName="TransportCharge"                escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_transport_charge_item"          domainObjectName="TransportChargeItem"            escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_user_message"                   domainObjectName="UserMessage"                    escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_vehicles"                       domainObjectName="Vehicles"                       escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+    <table schema="xiaoniu" tableName="xn_m_app"                            domainObjectName="App"                            escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+    <table schema="xiaoniu" tableName="xn_m_user_app"                       domainObjectName="UserApp"                        escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+    <table schema="xiaoniu" tableName="xn_m_message_template"               domainObjectName="MessageTemplate"                escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+    <table schema="xiaoniu" tableName="xn_m_firmware_update"                domainObjectName="FirmwareUpdate"                 escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+    <table schema="xiaoniu" tableName="xn_m_report_message_device"          domainObjectName="ReportMessageDevice"            escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+ 	<table schema="xiaoniu" tableName="xn_m_message_blacklist"          	domainObjectName="MmessageBlacklist"              escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_sms_up"          				domainObjectName="SmsUp"             			  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+ 	<table schema="xiaoniu" tableName="xn_m_sms_down"          				domainObjectName="SmsDown"             			  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_driver"          				domainObjectName="Driver"             			  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+ 	&lt;!&ndash; 外部接口调用 &ndash;&gt;
+ 	<table schema="xiaoniu" tableName="xn_m_inf_conf"          				domainObjectName="InfConf"             			  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+ 	<table schema="xiaoniu" tableName="xn_m_inf_log"          				domainObjectName="InfLog"             			  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+ 	<table schema="xiaoniu" tableName="xn_m_inf_log_his"          			domainObjectName="InfLogHis"             		  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+ 	&lt;!&ndash; 2015-5-9 营销活动 &ndash;&gt;
+ 	<table schema="xiaoniu" tableName="xn_m_adv"          					domainObjectName="Adv"             			 	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+ 	<table schema="xiaoniu" tableName="xn_m_adv_img"          				domainObjectName="AdvImg"             		  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+ 	<table schema="xiaoniu" tableName="xn_m_integral_rule"          		domainObjectName="IntegralRule"             	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+ 	<table schema="xiaoniu" tableName="xn_m_integral_log"          			domainObjectName="IntegralLog"             		  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/> 
+ 	<table schema="xiaoniu" tableName="xn_m_channel"        			    domainObjectName="Channel"             			 escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+ 	<table schema="xiaoniu" tableName="xn_m_channel_invite_log"             domainObjectName="ChannelInviteLog"       		 escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+ 	<table schema="xiaoniu" tableName="xn_m_prizes"             	        domainObjectName="Prizes"       		         escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+ 	<table schema="xiaoniu" tableName="xn_m_prizes_inventory"               domainObjectName="PrizesInventory"       		 escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+ 	 &lt;!&ndash; 通讯录   &ndash;&gt;
+	<table schema="xiaoniu" tableName="xn_m_friend"             	        domainObjectName="Friend"       		    	 escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+ 	<table schema="xiaoniu" tableName="xn_m_friend_group"                   domainObjectName="FriendGroup"       		 	 escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>	
+ 	<table schema="xiaoniu" tableName="xn_m_chatgroups"                     domainObjectName="Chatgroups"       		 	 escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+ 	<table schema="xiaoniu" tableName="xn_m_friend_blanklist"               domainObjectName="FriendBlanklist"        		 escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+    &lt;!&ndash; 评价 &ndash;&gt;
+    <table schema="xiaoniu" tableName="xn_m_rating"              			 domainObjectName="Rating"        		 		 escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+    <table schema="xiaoniu" tableName="xn_r_order_rating"               	 domainObjectName="OrderRating"        			 escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+ 	<table schema="xiaoniu" tableName="xn_r_dispatch_rating"              	 domainObjectName="DispatchRating"        		 escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+ 	<table schema="xiaoniu" tableName="xn_m_complain"               		 domainObjectName="Complain"        		 	 escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+ 	<table schema="xiaoniu" tableName="xn_r_order_complain"                  domainObjectName="OrderComplain"        		 escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+ 	<table schema="xiaoniu" tableName="xn_r_dispatch_complain"               domainObjectName="DispatchComplain"        	 escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+ 	&lt;!&ndash; 运营货源 &ndash;&gt;
+    <table schema="xiaoniu" tableName="xn_m_goods_supply_operate"           domainObjectName="GoodsSupplyOperate"        	 escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+    &lt;!&ndash; 用户银行卡 &ndash;&gt;
+    <table schema="xiaoniu" tableName="xn_m_user_bank_card"                 domainObjectName="UserBankCard"              	 escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+    &lt;!&ndash; 路港 &ndash;&gt;
+    <table schema="xiaoniu" tableName="xn_m_lugang"                         domainObjectName="Luguang"              	     escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+    &lt;!&ndash; 路港席位&ndash;&gt;
+    <table schema="xiaoniu" tableName="xn_m_lugang_seat"                    domainObjectName="LuguangSeat"              	 escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+    &lt;!&ndash; 路港人员&ndash;&gt;
+    <table schema="xiaoniu" tableName="xn_r_lugang_personnel"               domainObjectName="LugangPersonnel"               escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+
+  	<table schema="xiaoniu" tableName="xn_r_user_desktop"              	    domainObjectName="UserDesktop"                   escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+       
+    <table schema="xiaoniu" tableName="xn_m_desktop_box"              	    domainObjectName="DesktopBox"          			 escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+     
+ 	<table schema="xiaoniu" tableName="xn_r_company_vehicles"               domainObjectName="CompanyVehicles"                escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+ 	<table schema="xiaoniu" tableName="xn_m_vehicles_collect"               domainObjectName="VehiclesCollect"                escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+    <table schema="xiaoniu" tableName="xn_r_vehicles_direction"             domainObjectName="VehiclesDirection"              escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+    <table schema="xiaoniu" tableName="xn_r_company_driver"                 domainObjectName="CompanyDriver"                  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+    <table schema="xiaoniu" tableName="xn_r_dispatch_goods"                 domainObjectName="DispatchGoods"                  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_r_target_member"                  domainObjectName="TargetMember"                   escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_r_target_customer"                domainObjectName="TargetCustomer"                 escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_r_logisticspipeline_deliverymode" domainObjectName="LogisticspipelineDeliverymode"  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+    <table schema="xiaoniu" tableName="xn_r_company_member"                 domainObjectName="CompanyMember"                  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_r_user_role"                      domainObjectName="UserRole"                       escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+   	<table schema="xiaoniu" tableName="xn_r_user_address_book_contact"      domainObjectName="UserAddressBookContact"         escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+   	<table schema="xiaoniu" tableName="xn_r_dispatch_evaluation"            domainObjectName="DispatchEvaluation"             escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+   	<table schema="xiaoniu" tableName="xn_r_role_permission"                domainObjectName="RolePermission"                 escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+   	<table schema="xiaoniu" tableName="xn_r_realtime_transport_direction"   domainObjectName="RealtimeTransportDirection"     escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+   	<table schema="xiaoniu" tableName="xn_r_quotation_carriage"             domainObjectName="QuotationCarriage"              escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+   	<table schema="xiaoniu" tableName="xn_r_outlets_outlets_business"       domainObjectName="OutletsOutletsBusiness"         escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+   	<table schema="xiaoniu" tableName="xn_r_logistics_order_goods"          domainObjectName="LogisticsOrderGoods"            escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+   	<table schema="xiaoniu" tableName="xn_r_logistics_order_evaluation"     domainObjectName="LogisticsOrderEvaluation"       escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+   	<table schema="xiaoniu" tableName="xn_r_goods_supply_goods"             domainObjectName="GoodsSupplyGoods"               escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_r_goods_supply_delivery_mode"     domainObjectName="GoodsSupplyDeliveryMode"        escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_invoice_template"  				domainObjectName="InvoiceTemplate"    			  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_sms_send"  						domainObjectName="SmsSend"    			  		  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+    <table schema="xiaoniu" tableName="xn_m_address_common"             	domainObjectName="AddressCommon"    			  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	
+  	<table schema="xiaoniu" tableName="xn_m_freight_settlement_strategy_his" domainObjectName="FreightSettlementStrategyHis"  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_standard_freight"  				domainObjectName="StandardFreight"    			  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	
+  	
+  	<table schema="xiaoniu" tableName="xn_m_address_manage"  				domainObjectName="AddressManage"    			  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_goods_manage"  					domainObjectName="GoodsManage"			  	 	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_company_setting"  			    domainObjectName="CompanySetting"   			  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	  
+  	
+  	<table schema="xiaoniu" tableName="xn_m_score"                          domainObjectName="Score"                          escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false" />
+    <table schema="xiaoniu" tableName="xn_m_agent"                          domainObjectName="Agent"                          escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_agent_vip_company"              domainObjectName="AgentVipCompany"                escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_bank_card"                      domainObjectName="BankCard"                       escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_capital_account"                domainObjectName="CapitalAccount"                 escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_capital_account_record"         domainObjectName="CapitalAccountRecord"           escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_freight_settle_record"          domainObjectName="FreightSettleRecord"            escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_freight_settle_oilcard"          domainObjectName="FreightSettleOilcard"            escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_freight_settlement"             domainObjectName="FreightSettlement"              escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+	<table schema="xiaoniu" tableName="xn_m_freight_settlement_strategy"    domainObjectName="FreightSettlementStrategy"      escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>    
+	<table schema="xiaoniu" tableName="xn_m_oilcard"                        domainObjectName="Oilcard"                        escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  
+  	<table schema="xiaoniu" tableName="xn_m_task"  							domainObjectName="Task"    			  			  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_task_template"  				domainObjectName="TaskTemplate"			  	 	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_task_result"  			    	domainObjectName="TaskResult"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	
+  	
+  	<table schema="xiaoniu" tableName="xn_r_post_user"  			    	domainObjectName="PostUser"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	
+    <table schema="xiaoniu" tableName="xn_r_post_autho_data"  			    domainObjectName="PostAuthoData"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	
+  	<table schema="xiaoniu" tableName="xn_r_post_auth_function"  		    domainObjectName="PostAuthFunction"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	
+  	<table schema="xiaoniu" tableName="xn_m_organization"  		    		domainObjectName="Organization"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	
+  	<table schema="xiaoniu" tableName="xn_m_post"  		    				domainObjectName="Post"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	
+  	<table schema="xiaoniu" tableName="xn_m_transport_team"  		    				domainObjectName="TransportTeam"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_transport_team_vehicles"  		    		domainObjectName="TransportTeamVehicles"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_transport_team_driver"  		    		domainObjectName="TransportTeamDriver"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_charge_template"  		    				domainObjectName="ChargeTemplate"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_r_charge_template_subject"  		    		domainObjectName="ChargeTemplateSubject"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_r_charge_transport"  		    				domainObjectName="ChargeTransport"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_insurance_policy"  		    				domainObjectName="InsurancePolicy"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_collect_money"  		    				domainObjectName="CollectMoney"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_order_payment"  		    				domainObjectName="OrderPayment"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_order_excu_result"  		    			domainObjectName="OrderExcuResult"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="subject_init"  		    						domainObjectName="SubjectInit"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="subject_template_init"  		    				domainObjectName="SubjectTemplateInit"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_document_code_rule"  		    			domainObjectName="DocumentCodeRule"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_expansion_field"  		    				domainObjectName="ExpansionField"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_r_expansion_field_enum"  		    			domainObjectName="ExpansionFieldEnum"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_r_order_expansion_field"  		    		domainObjectName="OrderExpansionField"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	
+  	<table schema="xiaoniu" tableName="xn_m_lbs_log"  		    						domainObjectName="LbsLog"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_r_goods_manage_expansion_field"  		    			domainObjectName="GoodsManageExpansionField"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_r_other_photo"  		    					domainObjectName="RelateOtherPhoto"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_goods_inventory"  		    				domainObjectName="GoodsInventory"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_inout_stock_record"  		    			domainObjectName="InoutStockRecord"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_inout_stock_goods"  		    			domainObjectName="InoutStockGoods"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	
+  	<table schema="xiaoniu" tableName="xn_m_logistics_order_sign_result"  		    	domainObjectName="LogisticsOrderSignResult"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_logistics_order_sign"  		    			domainObjectName="LogisticsOrderSign"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_r_logistics_order_sign_goods"  		    	domainObjectName="LogisticsOrderSignGoods"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_stock_log"									domainObjectName="StockLog"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_receive_pay_detail"							domainObjectName="ReceivePayDetail"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	
+  	
+  	<table schema="xiaoniu" tableName="xn_m_charge_strategy"  		    				domainObjectName="ChargeStrategy"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_tiered_pricing"  		    				domainObjectName="TieredPricing"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_r_applicable_company"  		    			domainObjectName="ApplicableCompany"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_r_applicable_member"  		    			domainObjectName="ApplicableMember"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_r_applicable_route"  		    				domainObjectName="ApplicableRoute"   			  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_show_field"  		    					domainObjectName="ShowField"   			  	  		  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	
+  	<table schema="xiaoniu" tableName="xn_m_disposal_sites"  		    				domainObjectName="DisposalSites"   			  	  	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_consumptive_license"  		    			domainObjectName="ConsumptiveLicense"   			  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_construction_project"  		    			domainObjectName="ConstructionProject"   			  	  		  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_supervise_plat"  		    				domainObjectName="SupervisePlat"   			  	  		  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_approved_logistics"  		    			domainObjectName="ApprovedLogistics"   			  	  		  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_approved_vehicles"  		    			domainObjectName="ApprovedVehicles"   			  	  		  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_supervision_strategy"  		    			domainObjectName="SupervisionStrategy"   			  	  		  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_forbidden_area"  		    				domainObjectName="ForbiddenArea"   			  	  		  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_supervision_log"  		    				domainObjectName="SupervisionLog"   			  	  		  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_r_license_disposal"  		    				domainObjectName="RelateLicenseDisposal"   			  	  		  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_r_license_vehicles"  		    				domainObjectName="RelateLicenseVehicles"   			  	  		  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_illegal_disposal"  		    				domainObjectName="IllegalDisposal"   			  	  		  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_cmd_send"  		    						domainObjectName="CmdSend"   			  	  		  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  
+  	<table schema="xiaoniu" tableName="xn_m_event"  		    						domainObjectName="Event"   			  	  		 	  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_event_message_template"  		    		domainObjectName="EventMessageTemplate"   			  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_m_event_subscription"  		    			domainObjectName="EventSubscription"   		  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_r_event_subscription_org"  		    		domainObjectName="EventSubscriptionOrg"   			  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	<table schema="xiaoniu" tableName="xn_r_event_subscription_user"  		    		domainObjectName="EventSubscriptionUser"   			  escapeWildcards="false" enableCountByExample="true"    enableDeleteByExample="true"   enableSelectByExample="true" enableUpdateByExample="false"/>
+  	-->
+  </context>
+</generatorConfiguration>
